@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Filtering</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <style>
+     body {
+      background-image: url('your-image-url.jpg');
+      background-color: #c82333;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    .container {
+      background-color: rgba(212, 162, 162, 0.8);
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      margin-top: 50px;
+      background-image: url('');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+    .btn-primary, .btn-success, .btn-danger {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+    .btn-primary:hover, .btn-success:hover, .btn-danger:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+    .btn-update {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+    .btn-update:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+    .btn-delete {
+      background-color: #dc3545;
+      border-color: #dc3545;
+    }
+    .btn-delete:hover {
+      background-color: #c82333;
+      border-color: #c82333;
+    }
+    .thead-dark th {
+      background-color: #343a40;
+      color: #fff;
+    }
+    .stopwatch {
+      font-size: 24px;
+      border: 2px solid #007bff;
+      border-radius: 50%;
+      width: 150px;
+      height: 150px;
+      padding-top: 60px; /* Center the text vertically */
+      margin: 0 auto; /* Center the stopwatch horizontally */
+    }
+  </style>
+
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Task Manager</h1>
+    <div class="row justify-content-center mb-4">
+      <div class="col-md-6">
+        <select class="form-control" onchange="dropdown()" id="demo">
+          <option disabled selected>Please select an option</option>
+          <option value="1">Filter by Work</option>
+          <option value="2">Filter by Personal Work</option>
+          <option value="3">Filter by Project Work</option>
+          <option value="4">Filter by Meeting</option>
+        </select>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <table class="table table-bordered table-striped">
+          <tbody id="Emplist">
+            <!-- Table content will be dynamically generated -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <form>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <label for="Category">Enter Category:</label>
+          <input type="text" class="form-control" id="Category" placeholder="Enter Your Category" required>
+        </div>
+        <div class="col-md-6">
+          <label for="Sub-Category">Enter Sub-Category:</label>
+          <input type="text" class="form-control" id="Sub-Category" placeholder="Enter Your Sub-Category" required>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <h2 class="text-center mt-4">Duration</h2>
+          <div class="stopwatch text-center">00:00:00</div>
+          <div class="text-center mt-2">
+            <button type="button" class="btn btn-primary mr-2" onclick="timer()" id="btn">START</button>
+            <button type="button" class="btn btn-danger" onclick="resetting()">RESET</button>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <label for="Task">Task Name:</label>
+          <input type="text" class="form-control" id="Task" placeholder="Enter Your Task" required>
+        </div>
+      </div>
+      <div class="row justify-content-center mt-3">
+        <div class="col-md-6 text-center">
+          <button type="submit" class="btn btn-success">SUBMIT</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="server.js"></script>
+  <!-- Your JavaScript -->
+  <script src="index.js"></script>
+</body>
+</html>
